@@ -174,7 +174,7 @@ class MultiHeadAttention(nn.Module):
     
         self.proj = nn.Linear(d_out, d_out, bias=False)
 
-        self.attend = Attend(self.d_out, self.num_heads, self.head_dim, dropout=False)
+        self.attend = Attend(self.d_out, self.num_heads, self.head_dim, dropout=dropout)
 
         self._kv_cache = KVCache((2560, 80, 384)) if enable_kv_cache else None # (640, 800, 64) TODO: Revisit KV Cache
     
